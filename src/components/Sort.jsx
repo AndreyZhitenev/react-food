@@ -11,7 +11,7 @@ function Sort({ value, onChangeSort }) {
 		{ name: 'алфавиту (ASC)', sortProperty: '-title' },
 	];
 
-	const onClickListItem = i => {
+	const onClickListItem = (i) => {
 		onChangeSort(i);
 		setOpen(false);
 	};
