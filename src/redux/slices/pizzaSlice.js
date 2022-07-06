@@ -29,12 +29,10 @@ export const pizzaSlice = createSlice({
 			state.items = [];
 		},
 		[fetchPizzas.fulfilled]: (state, action) => {
-			console.log(action, 'fulfilled');
 			state.status = 'success';
 			state.items = action.payload;
 		},
 		[fetchPizzas.rejected]: (state, action) => {
-			console.log(action, 'rejected');
 			state.status = 'error';
 			state.items = [];
 		},
