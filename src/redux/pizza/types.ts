@@ -1,17 +1,17 @@
 export type Pizza = {
 	id: string;
+	imageUrl: string[];
 	title: string;
-	price: number;
-	imageUrl: string;
-	sizes: number[];
-	types: number[];
+	types: number[][];
+	price: number[];
+	category: number;
 	rating: number;
 };
 
 export enum Status {
-	LOADING = 'loading',
-	SUCCESS = 'success',
-	ERROR = 'error',
+	LOADING = "loading",
+	SUCCESS = "success",
+	ERROR = "error",
 }
 
 export type SearchPizzaParams = {
@@ -20,6 +20,13 @@ export type SearchPizzaParams = {
 	category: string;
 	search: string;
 	currentPage: string;
+};
+
+export type SearchPizzaCountParams = {
+	sortBy: string;
+	order: string;
+	category: string;
+	search: string;
 };
 
 export interface PizzaSliceState {
