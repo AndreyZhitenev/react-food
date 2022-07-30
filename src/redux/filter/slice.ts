@@ -1,15 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FilterSliceState, Sort, SortPropertyEnum } from './types';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FilterSliceState, Sort, SortPropertyEnum } from "./types";
 
 const initialState: FilterSliceState = {
-	searchValue: '',
+	searchValue: "",
 	categoryId: 0,
 	currentPage: 1,
-	sort: { name: 'популярности', sortProperty: SortPropertyEnum.RATING_DESC },
+	sort: { name: "популярности ▾", sortProperty: SortPropertyEnum.RATING_DESC },
 };
 
 export const filterSlice = createSlice({
-	name: 'filters',
+	name: "filters",
 	initialState,
 	reducers: {
 		setCategoryId(state, action: PayloadAction<number>) {
@@ -33,7 +33,7 @@ export const filterSlice = createSlice({
 				state.currentPage = 1;
 				state.categoryId = 0;
 				state.sort = {
-					name: 'популярности',
+					name: "популярности",
 					sortProperty: SortPropertyEnum.RATING_DESC,
 				};
 			}

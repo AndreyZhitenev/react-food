@@ -6,6 +6,8 @@ export type Pizza = {
 	price: number[];
 	category: number;
 	rating: number;
+	nutritions: [];
+	desc: string;
 };
 
 export enum Status {
@@ -20,13 +22,6 @@ export type SearchPizzaParams = {
 	category: string;
 	search: string;
 	currentPage: string;
-};
-
-export type SearchPizzaCountParams = {
-	sortBy: string;
-	order: string;
-	category: string;
-	search: string;
 };
 
 export interface PizzaSliceState {

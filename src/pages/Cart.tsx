@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem, CartEmpty } from "../components";
 import { clearItems } from "../redux/cart/slice";
@@ -7,6 +7,8 @@ import { selectCart } from "../redux/cart/selectors";
 
 const Cart: React.FC = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const { totalPrice, items } = useSelector(selectCart);
 
 	const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
@@ -112,7 +114,7 @@ const Cart: React.FC = () => {
 						</span>
 					</div>
 					<div className="cart__bottom-buttons">
-						<Link to="/" className="button button--outline  go-back-btn">
+						<button className="button button--outline  go-back-btn" onClick={() => navigate(-1)}>
 							<svg
 								width="8"
 								height="14"
@@ -128,7 +130,7 @@ const Cart: React.FC = () => {
 								/>
 							</svg>
 							<span>Вернуться назад</span>
-						</Link>
+						</button>
 						<div className="button pay-btn">
 							<span>Оплатить сейчас</span>
 						</div>

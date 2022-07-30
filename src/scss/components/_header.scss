@@ -8,14 +8,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
-		@media (max-width: 645px) {
-			flex-direction: column;
-
-			.header__cart {
-				margin-top: 20px;
-			}
-		}
 	}
 
 	&__logo {
@@ -36,6 +28,51 @@
 
 		p {
 			color: #7b7b7b;
+		}
+	}
+
+	@media screen and (max-width: 820px) {
+		padding-bottom: 20px;
+
+		.container {
+			flex-direction: column;
+			position: relative;
+
+			a:not(.button--cart) {
+				align-self: flex-start;
+				position: relative;
+				top: 10px;
+				margin-bottom: 30px;
+			}
+		}
+
+		&__cart {
+			align-self: flex-end;
+			position: absolute;
+			top: 0;
+		}
+	}
+
+	@media screen and (max-width: 540px) {
+		padding-top: 20px;
+		.container {
+			flex-direction: column;
+			position: relative;
+			gap: 20px;
+
+			a:not(.button--cart) {
+				align-self: center;
+				position: relative;
+				top: 10px;
+				margin-bottom: 10px;
+			}
+		}
+
+		&__cart {
+			align-self: center;
+			position: relative;
+			top: 0;
+			order: 0;
 		}
 	}
 }

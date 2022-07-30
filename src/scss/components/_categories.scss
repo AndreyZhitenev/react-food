@@ -9,6 +9,7 @@
 			padding: 13px 15px;
 			border-radius: 15px;
 			margin-right: 10px;
+			margin-bottom: 10px;
 			font-size: 14px;
 			font-weight: bold;
 			cursor: pointer;
@@ -26,6 +27,123 @@
 			&.active {
 				background-color: #282828;
 				color: #fff;
+			}
+		}
+	}
+
+	&__label {
+		display: none;
+	}
+
+	@media screen and (max-width: 1200px) {
+		display: flex;
+		ul {
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@media screen and (max-width: 820px) {
+	.categories {
+		position: relative;
+		margin-top: 0;
+		overflow: inherit;
+
+		.categories__list {
+			display: none;
+		}
+
+		&__label {
+			display: flex;
+			justify-content: flex-start;
+			width: 100%;
+
+			svg {
+				margin-right: 8px;
+			}
+
+			b {
+				margin-right: 8px;
+				color: $orange;
+			}
+
+			span:not(.sort__label-name) {
+				display: flex;
+			}
+
+			span {
+				width: 80%;
+				cursor: pointer;
+			}
+
+			&-name {
+				white-space: nowrap;
+				background: rgba(254, 95, 30, 0.05);
+				padding: 13px 15px;
+				border-radius: 15px;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				font-size: 14px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: background-color 0.1s ease-in-out;
+
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+
+		&__popup {
+			position: absolute;
+			top: 45px;
+			left: 0;
+			right: 0;
+			margin-top: 15px;
+			background: #ffffff;
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+			border-radius: 10px;
+			overflow: hidden;
+			padding: 10px 0;
+			width: 300px;
+			z-index: 1;
+
+			ul {
+				overflow: hidden;
+				width: 100% !important;
+				li {
+					width: 100%;
+					padding: 15px 20px;
+					margin-left: 10px;
+					cursor: pointer;
+
+					&.active,
+					&:hover {
+						background: rgba(254, 95, 30, 0.05);
+					}
+
+					&.active {
+						font-weight: bold;
+						color: $orange;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.categories {
+		position: relative;
+		margin-top: 0;
+		overflow: inherit;
+
+		.categories__list {
+			display: none;
+		}
+
+		&__label {
+			span {
+				width: 100%;
 			}
 		}
 	}

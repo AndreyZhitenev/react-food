@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .sort {
 	position: relative;
@@ -14,10 +14,18 @@
 			margin-right: 8px;
 		}
 
+		span:not(.sort__label-name) {
+			display: flex;
+			border-bottom: 1px dashed $orange;
+		}
+
 		span {
 			color: $orange;
-			border-bottom: 1px dashed $orange;
 			cursor: pointer;
+		}
+
+		&-name {
+			white-space: nowrap;
 		}
 	}
 
@@ -48,6 +56,29 @@
 					color: $orange;
 				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 1300px) {
+		&__label {
+			flex-direction: column;
+			text-align: left;
+
+			b {
+				margin-left: 6px;
+				margin-bottom: 5px;
+			}
+
+			b,
+			span {
+				width: 100%;
+			}
+		}
+	}
+
+	@media screen and (max-width: 540px) {
+		&__popup {
+			left: 0;
 		}
 	}
 }

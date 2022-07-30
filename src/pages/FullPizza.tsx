@@ -14,6 +14,8 @@ interface Pizza {
 	types: number[][];
 	price: number[];
 	rating: number;
+	nutritions: [string, number, number, number];
+	desc: string;
 }
 
 const FullPizza: React.FC = () => {
@@ -63,8 +65,6 @@ const FullPizza: React.FC = () => {
 		return <>Загрузка...</>;
 	}
 
-	console.log();
-
 	return (
 		<div className="container container--fullPizza">
 			<div className="pizza-block">
@@ -84,25 +84,25 @@ const FullPizza: React.FC = () => {
 				</div>
 				<div className="pizza-block_right">
 					<div className="pizza-block__info">
-						<h1 className="pizza-block__title">{pizza.title}</h1>
+						<h1 className="pizza-block__title">Пицца {pizza.title}</h1>
 						<h2>Пищевая ценность на 100 г</h2>
 						<div className="nutritional">
 							<div className="col">
 								<div className="pdp-row">
 									<span>Энерг. ценность</span>
-									<span>241 ккал</span>
+									<span>{pizza.nutritions[0]} ккал</span>
 								</div>
 								<div className="pdp-row">
 									<span>Белки</span>
-									<span>10.4 г</span>
+									<span>{pizza.nutritions[1]} г</span>
 								</div>
 								<div className="pdp-row">
 									<span>Жиры</span>
-									<span>12.8 г</span>
+									<span>{pizza.nutritions[2]} г</span>
 								</div>
 								<div className="pdp-row">
 									<span>Углеводы</span>
-									<span>21.2 г</span>
+									<span>{pizza.nutritions[3]} г</span>
 								</div>
 							</div>
 						</div>
@@ -160,11 +160,7 @@ const FullPizza: React.FC = () => {
 						</div>
 					</div>
 					<div className="pizza-block__content">
-						<p>
-							Отличительной чертой пиццы «Пепперони» является ее остро-жгучий вкус. В этой пицце
-							главную роль играет колбаса «Пепперони», нарезанная небольшими кусочками. Жирные
-							острые кусочки салями великолепно сочетаются с нежностью Моцареллы.
-						</p>
+						<p>{pizza.desc}</p>
 					</div>
 				</div>
 			</div>
