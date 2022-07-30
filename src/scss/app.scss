@@ -774,6 +774,10 @@ body {
 }
 
 @media screen and (max-width: 540px) {
+	* {
+		cursor: none !important;
+	}
+
 	.content {
 		padding-bottom: 0;
 
