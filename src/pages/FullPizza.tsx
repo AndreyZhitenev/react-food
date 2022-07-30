@@ -22,7 +22,7 @@ const FullPizza: React.FC = () => {
 	const [pizza, setPizza] = React.useState<Pizza | null>(null);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const id = window.location.href.split("/")[5];
+	const id = window.location.href.split("/")[window.location.href.split("/").length - 1];
 
 	const cartItem = useSelector(selectCartItemById(id));
 
