@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addItem, minusItem, removeItem } from "../redux/cart/slice";
 import { CartItem as CartItemType } from "../redux/cart/types";
 
@@ -59,6 +60,7 @@ export const CartItem: React.FC<CartItemProps> = ({
 					type,
 					size,
 					price,
+					countById,
 				} as CartItemType),
 			);
 		}
@@ -66,20 +68,22 @@ export const CartItem: React.FC<CartItemProps> = ({
 
 	return (
 		<div className="cart__item">
-			<div className="cart__item-img">
-				<img
-					className="pizza-block__image"
-					src={imageUrl[type] && process.env.PUBLIC_URL + imageUrl[type]}
-					alt="Pizza"
-				/>
-			</div>
-			<div className="cart__item-info">
-				<h3>{title}</h3>
-				<p>
-					{type === 0 ? "стандартное" : "тонкое"} тесто, {weight} г,{" "}
-					{size === 0 ? 26 : size === 1 ? 30 : 40} см.
-				</p>
-			</div>
+			<Link to={`/pizza/${id}`}>
+				<div className="cart__item-img">
+					<img
+						className="pizza-block__image"
+						src={imageUrl[type] && process.env.PUBLIC_URL + imageUrl[type]}
+						alt="Pizza"
+					/>
+				</div>
+				<div className="cart__item-info">
+					<h3>{title}</h3>
+					<p>
+						{type === 0 ? "стандартное" : "тонкое"} тесто, {weight} г,{" "}
+						{size === 0 ? 26 : size === 1 ? 30 : 40} см.
+					</p>
+				</div>
+			</Link>
 			<div className="cart__item-count">
 				<button
 					disabled={count === 1}

@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .header {
 	border-bottom: 1px solid $gray-line;
@@ -20,6 +20,7 @@
 
 	&__logo {
 		display: flex;
+		align-items: center;
 
 		img {
 			margin-right: 15px;

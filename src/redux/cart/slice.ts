@@ -42,12 +42,25 @@ export const cartSlice = createSlice({
 			state.totalPrice = calcTotalPrice(state.items);
 		},
 		removeItem(state, action: PayloadAction<CartItem>) {
+			const findItem = state.items.find(
+				(obj) =>
+					obj.id === action.payload.id &&
+					obj.price === action.payload.price &&
+					obj.type === action.payload.type,
+			);
 			state.items = state.items.filter(
 				(obj) =>
 					obj.id !== action.payload.id ||
 					obj.price !== action.payload.price ||
 					obj.type !== action.payload.type,
 			);
+
+			state.items.forEach((obj) => {
+				if (obj.id === findItem!.id) {
+					obj.countById -= findItem!.count;
+				}
+			});
+
 			state.totalPrice = calcTotalPrice(state.items);
 		},
 		clearItems(state) {
