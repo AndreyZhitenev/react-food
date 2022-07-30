@@ -73,8 +73,11 @@ body {
 			justify-content: flex-start;
 
 			.sort {
-				align-self: flex-start;
 				padding-left: 0;
+
+				b {
+					text-align: center;
+				}
 			}
 		}
 	}
@@ -773,5 +776,10 @@ body {
 @media screen and (max-width: 540px) {
 	.content {
 		padding-bottom: 0;
+
+		&__title {
+			font-size: 28px;
+			text-align: center;
+		}
 	}
 }
